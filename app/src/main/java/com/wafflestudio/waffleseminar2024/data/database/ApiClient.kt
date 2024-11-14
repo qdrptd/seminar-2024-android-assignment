@@ -20,7 +20,7 @@ interface ApiClient {
     @GET("3/search/movie")
     suspend fun getMoviesByTitle(
         @Query("query") query: String
-    ): List<MyEntity>
+    ): ResponseWrapper<MyEntity>
 
     @GET("3/discover/movie")
     suspend fun getMoviesByGenre(

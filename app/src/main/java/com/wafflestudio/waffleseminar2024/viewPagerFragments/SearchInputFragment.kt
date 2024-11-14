@@ -107,8 +107,8 @@ class SearchInputFragment: Fragment() {
         inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
     }
 
-    private fun showResult(data: List<Movie>) {
-        val action = SearchInputFragmentDirections.actionToSearchResultFragment(data.toTypedArray())
+    private fun showResult(data: List<Movie>?) {
+        val action = SearchInputFragmentDirections.actionToSearchResultFragment(data?.toTypedArray() ?: emptyArray())
         navController.navigate(action)
     }
 

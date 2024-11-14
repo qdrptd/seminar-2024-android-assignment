@@ -24,7 +24,7 @@
             app:destination="@id/SearchResultFragment"/>
         <action
             android:id="@+id/back_to_searchOverviewFragment"
-            app:destination="@id/SearchOverviewFragment" />
+            app:destination="@id/SearchOverviewFragment"/>
     </fragment>
 
     <fragment
