@@ -6,14 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wafflestudio.waffleseminar2024.Movie
 import com.wafflestudio.waffleseminar2024.data.database.MovieRepository
-import com.wafflestudio.waffleseminar2024.data.database.MyEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
-    private val _movie = MutableLiveData<MyEntity>()
-    val movie: LiveData<MyEntity> get() = _movie
+    private val _myEntity = MutableLiveData<com.wafflestudio.waffleseminar2024.data.database.MyEntity>()
+    val myEntity: LiveData<com.wafflestudio.waffleseminar2024.data.database.MyEntity> get() = _myEntity
 
     private val _searchResults = MutableLiveData<List<Movie>>()
     val searchResults: LiveData<List<Movie>> get() = _searchResults
@@ -24,7 +23,7 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
             val movieDetails = withContext(Dispatchers.IO) {
                 repository.getMovieById(id)  // 데이터베이스에서 영화 정보 가져오기
             }
-            _movie.value = movieDetails
+            _myEntity.value = movieDetails
         }
     }
 

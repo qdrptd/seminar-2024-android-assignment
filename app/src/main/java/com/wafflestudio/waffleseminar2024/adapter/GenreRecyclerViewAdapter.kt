@@ -31,7 +31,6 @@ class GenreRecyclerViewAdapter(private val mData: List<Genre>, private val liste
     }
 
     override fun getItemCount(): Int {
-        Log.d("size", mData.size.toString())
         return mData.size
     }
 }

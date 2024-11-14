@@ -1,15 +1,12 @@
 package com.wafflestudio.waffleseminar2024.data.database
 
-import androidx.databinding.adapters.Converters
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.wafflestudio.waffleseminar2024.Company
-import com.wafflestudio.waffleseminar2024.Country
 import com.wafflestudio.waffleseminar2024.Genre
-import com.wafflestudio.waffleseminar2024.Language
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity(tableName = "example_table2")
 @TypeConverters(MyConverters::class)
 data class MyEntity(

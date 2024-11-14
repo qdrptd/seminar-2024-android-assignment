@@ -1,3 +1,6 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -14,6 +17,7 @@ android {
     android {
         buildFeatures {
             viewBinding = true
+            android.buildFeatures.buildConfig = true
         }
     }
     defaultConfig {
@@ -23,8 +27,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "API_KEY", getApiKey("API_KEY"))
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -42,7 +46,6 @@ android {
         jvmTarget = "1.8"
     }
 }
-
 dependencies {
     implementation(libs.coil)
     implementation(libs.kotlinx.serialization.json)
@@ -63,4 +66,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.retrofit)
+    implementation(libs.moshi)
+    implementation(libs.moshiKotlin)
+    implementation(libs.retrofitMoshiConverter)
+    implementation(libs.okhttp)
+    implementation(libs.okhttpLoggingInterceptor)
+    implementation(libs.coroutinesCore)
+    implementation(libs.coroutinesAndroid)
+}
+
+fun getApiKey(propertyKey: String): String {
+    val properties = Properties()
+    val propertiesFile = FileInputStream("local.properties")
+    properties.load(propertiesFile)
+    return properties.getProperty(propertyKey)
 }

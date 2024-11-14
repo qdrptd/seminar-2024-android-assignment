@@ -1,18 +1,15 @@
 package com.wafflestudio.waffleseminar2024.data.database
 
 import android.content.Context
-import androidx.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(entities = [MyEntity::class], version = 1)
 @TypeConverters(MyConverters::class)
 abstract class MyDatabase : RoomDatabase() {
-    abstract fun myDao(): MyDao
+    abstract fun myDao(): MovieDao
 
     companion object {
         @Volatile
