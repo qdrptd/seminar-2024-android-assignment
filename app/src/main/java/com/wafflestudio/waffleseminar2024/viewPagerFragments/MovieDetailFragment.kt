@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.wafflestudio.waffleseminar2024.Genre
+import com.wafflestudio.waffleseminar2024.R
 import com.wafflestudio.waffleseminar2024.adapter.GenreChipAdapter
 import com.wafflestudio.waffleseminar2024.databinding.FragmentMovieDetailBinding
 import com.wafflestudio.waffleseminar2024.viewmodel.MovieViewModel
@@ -17,7 +19,6 @@ import com.wafflestudio.waffleseminar2024.viewmodel.MovieViewModelFactory
 import java.text.DecimalFormat
 
 class MovieDetailFragment : Fragment() {
-    private lateinit var navController: NavController
 
     private val viewModel: MovieViewModel by viewModels { MovieViewModelFactory(requireContext()) }
     private val movieId: Int by lazy {
@@ -56,6 +57,12 @@ class MovieDetailFragment : Fragment() {
                 binding.revenueText.text = DecimalFormat("$#,###").format(it.revenue)
             }
         }
+        val navController = findNavController()
+        binding.backButton.setOnClickListener{
+            val action = MovieDetailFragmentDirections.actionToSearchResultFragment(emptyArray())
+            navController.navigate(action)
+        }
+
     }
 
     private fun setupRecyclerView(data: List<Genre>) {

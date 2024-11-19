@@ -135,7 +135,6 @@ const val GenreListString = """
 
 @Serializable
 @Parcelize
-
 class Genre(
     val id: Int,
     val name: String,

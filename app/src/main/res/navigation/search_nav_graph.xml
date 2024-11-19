@@ -49,6 +49,9 @@
         android:id="@+id/MovieDetailFragment"
         android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.MovieDetailFragment"
         android:label="Movie Detail">
+        <action
+            android:id="@+id/action_to_searchResultFragment"
+            app:destination="@id/SearchResultFragment" />
         <argument
             android:name="movieId"
             app:argType="integer" />

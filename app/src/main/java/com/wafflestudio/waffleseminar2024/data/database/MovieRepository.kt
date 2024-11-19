@@ -14,7 +14,6 @@ class MovieRepository(private val apiClient: ApiClient) {
     }
 
     suspend fun getMoviesByGenre(genreId: Int): List<MyEntity> {
-        val result = apiClient.getMoviesByGenre(genreId.toString())
-        return result.results
+        return apiClient.getMoviesByGenre(genreId.toString()).results
     }
 }
