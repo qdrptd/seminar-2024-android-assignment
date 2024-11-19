@@ -15,7 +15,7 @@ class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
     val myEntity: LiveData<com.wafflestudio.waffleseminar2024.data.database.MyEntity> get() = _myEntity
 
     private val _searchResults = MutableLiveData<List<Movie>>()
-    val searchResults: LiveData<List<Movie>> get() = _searchResults
+    val searchResults: MutableLiveData<List<Movie>> get() = _searchResults
 
     fun fetchMovieDetails(id: Int) {
         viewModelScope.launch {

@@ -1,5 +1,6 @@
 package com.wafflestudio.waffleseminar2024
 
+import android.os.Parcel
 import android.os.Parcelable
 import androidx.room.Embedded
 import androidx.room.PrimaryKey
@@ -25,23 +26,29 @@ data class Movie(
     val genres: List<Genre>?
 ) : Parcelable
 
+@Serializable
+@Parcelize
 data class Company(
     val id: Int,
     val logoPath: String?,
     val name: String,
     val originCountry: String?
-)
+): Parcelable
 
+@Serializable
+@Parcelize
 data class Country(
-    val iso: String,
+    val iso_3166_1: String,
     val name: String
-)
+): Parcelable
 
+@Serializable
+@Parcelize
 data class Language(
     val iso_639_1: String,
     val name: String,
     val english_name: String
-)
+): Parcelable
 
 
 const val GenreListString = """

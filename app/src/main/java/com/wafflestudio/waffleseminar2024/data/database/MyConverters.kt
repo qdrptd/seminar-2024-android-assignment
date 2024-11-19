@@ -60,7 +60,7 @@ class MyConverters {
     }
 
     @TypeConverter
-    fun toListCountry(value: String): List<Country>? {
+    fun toListCountry(value: String): List<Country> {
         val jsonFormValue = value
             .replace("Country", "")
             .replace("iso", "\"iso\"")

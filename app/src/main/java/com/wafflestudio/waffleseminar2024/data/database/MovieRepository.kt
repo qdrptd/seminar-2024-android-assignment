@@ -6,7 +6,7 @@ import android.util.Log
 class MovieRepository(private val apiClient: ApiClient) {
 
     suspend fun getMovieById(id: Int): MyEntity {
-        return apiClient.getMyEntityById(id.toString())[0]
+        return apiClient.getMyEntityById(id)
     }
 
     suspend fun getMoviesByTitle(titleWord: String): List<MyEntity> {
@@ -15,7 +15,6 @@ class MovieRepository(private val apiClient: ApiClient) {
 
     suspend fun getMoviesByGenre(genreId: Int): List<MyEntity> {
         val result = apiClient.getMoviesByGenre(genreId.toString())
-        Log.d("a", result.results.toString())
         return result.results
     }
 }

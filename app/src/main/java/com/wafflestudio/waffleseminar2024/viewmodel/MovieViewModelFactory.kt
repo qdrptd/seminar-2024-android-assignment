@@ -11,7 +11,7 @@ class MovieViewModelFactory(private val context: Context) : ViewModelProvider.Fa
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MovieViewModel::class.java)) {
             val apiService = RetrofitInstance.api
-            val repository = MovieRepository(apiClient = apiService)
+            val repository = MovieRepository(apiService)
             return MovieViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

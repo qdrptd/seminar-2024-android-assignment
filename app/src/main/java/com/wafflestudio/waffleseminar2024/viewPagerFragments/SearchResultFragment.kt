@@ -2,6 +2,7 @@ package com.wafflestudio.waffleseminar2024.viewPagerFragments
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -75,6 +76,7 @@ class SearchResultFragment : Fragment() {
     private fun showResult(data: List<Movie>) {
         searchResultRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
         searchResultRecyclerView.adapter = searchResultRecyclerViewAdapter(data) { movie ->
+            Log.d("a", movie.id.toString())
             val action = SearchResultFragmentDirections.actionToMovieDetailFragment(movie.id)
             navController.navigate(action)
         }

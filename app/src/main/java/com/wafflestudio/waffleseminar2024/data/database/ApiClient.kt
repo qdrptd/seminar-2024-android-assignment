@@ -1,10 +1,13 @@
 package com.wafflestudio.waffleseminar2024.data.database
 
+import androidx.room.Entity
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import com.wafflestudio.waffleseminar2024.Genre
 import com.wafflestudio.waffleseminar2024.Movie
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 @JsonClass(generateAdapter = true)
@@ -27,9 +30,9 @@ interface ApiClient {
         @Query("with_genres") query: String
     ): ResponseWrapper<MyEntity>
 
-    @GET("3/search/movie")
+    @GET("3/movie/{movie_id}")
     suspend fun getMyEntityById(
-        @Query("query") query: String
-    ): List<MyEntity>
+        @Path("movie_id") movieId: Int
+    ): MyEntity
 
 }
