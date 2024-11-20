@@ -17,7 +17,7 @@ android {
     android {
         buildFeatures {
             viewBinding = true
-            android.buildFeatures.buildConfig = true
+            buildConfig = true
         }
     }
     defaultConfig {
@@ -74,6 +74,8 @@ dependencies {
     implementation(libs.okhttpLoggingInterceptor)
     implementation(libs.coroutinesCore)
     implementation(libs.coroutinesAndroid)
+    implementation(libs.hiltAndroid)
+    ksp(libs.hiltAndroidCompiler)
 }
 
 fun getApiKey(propertyKey: String): String {

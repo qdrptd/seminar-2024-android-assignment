@@ -9,8 +9,12 @@ import com.wafflestudio.waffleseminar2024.data.database.MovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
+
+class MovieViewModel @Inject constructor(
+    private val repository: MovieRepository
+) : ViewModel() {
     private val _myEntity = MutableLiveData<com.wafflestudio.waffleseminar2024.data.database.MyEntity>()
     val myEntity: LiveData<com.wafflestudio.waffleseminar2024.data.database.MyEntity> get() = _myEntity
 
