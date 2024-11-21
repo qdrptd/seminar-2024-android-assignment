@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/LikedMoviesFragment"
-        android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedMoviesFragment"
+        android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragments.LikedMoviesFragment"
         android:label="Search Overview">
         <action
             android:id="@+id/action_to_LikedMovieDetailFragment"
@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/LikedMovieDetailFragment"
-        android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedMovieDetailFragment"
+        android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragments.LikedMovieDetailFragment"
         android:label="Search Input">
         <action
             android:id="@+id/action_to_LikedMoviesFragment"

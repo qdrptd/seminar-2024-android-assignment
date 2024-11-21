@@ -1,4 +1,4 @@
-package com.wafflestudio.waffleseminar2024.viewPagerFragments
+package com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.wafflestudio.waffleseminar2024.R
 import com.wafflestudio.waffleseminar2024.databinding.FragmentLikedBinding
-import com.wafflestudio.waffleseminar2024.databinding.FragmentSearchBinding
 
 class LikedFragment : Fragment() {
     private var _binding: FragmentLikedBinding? = null

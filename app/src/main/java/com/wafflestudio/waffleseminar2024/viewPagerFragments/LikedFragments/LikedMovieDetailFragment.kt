@@ -1,13 +1,11 @@
-package com.wafflestudio.waffleseminar2024.viewPagerFragments
+package com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
@@ -20,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.text.DecimalFormat
 
 @AndroidEntryPoint
-class MovieDetailFragment : Fragment() {
+class LikedMovieDetailFragment : Fragment() {
 
 //    private val viewModel: MovieViewModel by viewModels { MovieViewModelFactory(requireContext()) }
     private val viewModel: MovieViewModel by viewModels()
@@ -69,14 +67,11 @@ class MovieDetailFragment : Fragment() {
             binding.likeButton.setImageResource(if(isLiked) R.drawable.star_filled  else R.drawable.star_gray)
         }
 
-
         val navController = findNavController()
         binding.backButton.setOnClickListener{
-            val action = MovieDetailFragmentDirections.actionToSearchResultFragment(emptyArray())
+            val action = LikedMovieDetailFragmentDirections.actionToLikedMoviesFragment()
             navController.navigate(action)
         }
-
-
 
     }
 

@@ -1,18 +1,15 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules
 
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.google.gson.annotations.JsonAdapter
-import com.squareup.moshi.JsonClass
 import com.wafflestudio.waffleseminar2024.Company
 import com.wafflestudio.waffleseminar2024.Country
 import com.wafflestudio.waffleseminar2024.Genre
 import com.wafflestudio.waffleseminar2024.Language
 import kotlinx.android.parcel.Parcelize
 import kotlinx.serialization.Serializable
-import java.io.Serial
 
 @Serializable
 @Entity(tableName = "example_table2")

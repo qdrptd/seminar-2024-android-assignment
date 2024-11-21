@@ -1,4 +1,4 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules.APIModules
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

@@ -1,7 +1,6 @@
-package com.wafflestudio.waffleseminar2024.viewPagerFragments
+package com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.wafflestudio.waffleseminar2024.R
 import com.wafflestudio.waffleseminar2024.adapter.posterRecyclerViewAdapter
-import com.wafflestudio.waffleseminar2024.data.database.LikedMovie
 import com.wafflestudio.waffleseminar2024.databinding.FragmentLikedMoviesBinding
 import com.wafflestudio.waffleseminar2024.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint

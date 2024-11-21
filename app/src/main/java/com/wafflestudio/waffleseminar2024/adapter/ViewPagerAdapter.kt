@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.wafflestudio.waffleseminar2024.viewPagerFragments.SearchFragment
-import com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedMoviesFragment
+import com.wafflestudio.waffleseminar2024.viewPagerFragments.SearchFragments.SearchFragment
 import com.wafflestudio.waffleseminar2024.viewPagerFragments.GameFragment
-import com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragment
+import com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragments.LikedFragment
 import com.wafflestudio.waffleseminar2024.viewPagerFragments.UserInformationFragment
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val slackWorkspaceUrl: String) : FragmentStateAdapter(fragmentActivity) {

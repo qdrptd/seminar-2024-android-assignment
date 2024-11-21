@@ -1,4 +1,4 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

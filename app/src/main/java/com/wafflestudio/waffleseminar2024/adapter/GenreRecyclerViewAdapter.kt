@@ -1,6 +1,5 @@
 package com.wafflestudio.waffleseminar2024.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.wafflestudio.waffleseminar2024.Genre
 import com.wafflestudio.waffleseminar2024.R
-import com.wafflestudio.waffleseminar2024.viewPagerFragments.OnGenreClickListener
+import com.wafflestudio.waffleseminar2024.viewPagerFragments.SearchFragments.OnGenreClickListener
 
 class GenreRecyclerViewAdapter(private val mData: List<Genre>, private val listener: OnGenreClickListener) : RecyclerView.Adapter<GenreRecyclerViewAdapter.ViewHolder>() {
 

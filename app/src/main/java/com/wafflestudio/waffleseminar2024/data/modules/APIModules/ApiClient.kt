@@ -1,19 +1,10 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules.APIModules
 
-import androidx.room.Entity
-import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import com.wafflestudio.waffleseminar2024.Genre
-import com.wafflestudio.waffleseminar2024.Movie
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import retrofit2.Response
+import com.wafflestudio.waffleseminar2024.data.modules.MyEntity
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import javax.inject.Singleton
 
 @JsonClass(generateAdapter = true)
 data class ResponseWrapper<T>(

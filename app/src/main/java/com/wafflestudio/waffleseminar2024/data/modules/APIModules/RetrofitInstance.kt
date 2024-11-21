@@ -1,9 +1,6 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules.APIModules
 
-import com.google.gson.Gson
-import com.squareup.moshi.FromJson
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.ToJson
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.wafflestudio.waffleseminar2024.BuildConfig
 import okhttp3.OkHttpClient

@@ -1,10 +1,12 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules.DBModules
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.wafflestudio.waffleseminar2024.data.modules.LikedMovie
+import com.wafflestudio.waffleseminar2024.data.modules.MyEntity
 
 @Dao
 interface MovieDao {

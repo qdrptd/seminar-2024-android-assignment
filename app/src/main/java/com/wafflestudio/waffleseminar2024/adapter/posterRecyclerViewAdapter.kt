@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.wafflestudio.waffleseminar2024.R
-import com.wafflestudio.waffleseminar2024.data.database.LikedMovie
+import com.wafflestudio.waffleseminar2024.data.modules.LikedMovie
 
 class posterRecyclerViewAdapter(
     private val posterList: List<LikedMovie>,

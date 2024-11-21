@@ -1,4 +1,4 @@
-package com.wafflestudio.waffleseminar2024.viewPagerFragments
+package com.wafflestudio.waffleseminar2024.viewPagerFragments.SearchFragments
 
 
 import android.os.Bundle

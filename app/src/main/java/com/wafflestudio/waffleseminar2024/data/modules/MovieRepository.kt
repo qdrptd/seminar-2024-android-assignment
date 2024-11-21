@@ -1,5 +1,7 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules
 import androidx.lifecycle.LiveData
+import com.wafflestudio.waffleseminar2024.data.modules.APIModules.ApiClient
+import com.wafflestudio.waffleseminar2024.data.modules.DBModules.MovieDao
 import javax.inject.Inject
 
 

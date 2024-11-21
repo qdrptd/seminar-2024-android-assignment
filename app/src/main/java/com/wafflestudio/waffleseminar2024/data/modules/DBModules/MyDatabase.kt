@@ -1,4 +1,4 @@
-package com.wafflestudio.waffleseminar2024.data.database
+package com.wafflestudio.waffleseminar2024.data.modules.DBModules
 
 import android.content.Context
 import androidx.room.Database
@@ -7,6 +7,9 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.wafflestudio.waffleseminar2024.data.modules.LikedMovie
+import com.wafflestudio.waffleseminar2024.data.modules.MyConverters
+import com.wafflestudio.waffleseminar2024.data.modules.MyEntity
 
 @Database(entities = [MyEntity::class, LikedMovie::class], version = 2)
 @TypeConverters(MyConverters::class)
@@ -15,7 +18,7 @@ abstract class MyDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: MyDatabase ?= null
+        private var INSTANCE: MyDatabase?= null
 
         fun getDatabase(context: Context): MyDatabase {
             return INSTANCE ?: synchronized(this) {

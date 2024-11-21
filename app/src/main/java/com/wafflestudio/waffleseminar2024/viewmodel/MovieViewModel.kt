@@ -7,9 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wafflestudio.waffleseminar2024.Movie
-import com.wafflestudio.waffleseminar2024.data.database.LikedMovie
-import com.wafflestudio.waffleseminar2024.data.database.MovieRepository
-import com.wafflestudio.waffleseminar2024.data.database.MyEntity
+import com.wafflestudio.waffleseminar2024.data.modules.LikedMovie
+import com.wafflestudio.waffleseminar2024.data.modules.MovieRepository
+import com.wafflestudio.waffleseminar2024.data.modules.MyEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
