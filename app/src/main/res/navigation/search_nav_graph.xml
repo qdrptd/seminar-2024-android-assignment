@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:startDestination="@id/SearchOverviewFragment">
 
+
     <fragment
         android:id="@+id/SearchOverviewFragment"
         android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.SearchOverviewFragment"

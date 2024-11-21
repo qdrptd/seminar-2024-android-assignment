@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/LikedMoviesFragment">
+
+    <fragment
+        android:id="@+id/LikedMoviesFragment"
+        android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedMoviesFragment"
+        android:label="Search Overview">
+        <action
+            android:id="@+id/action_to_LikedMovieDetailFragment"
+            app:destination="@id/LikedMovieDetailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/LikedMovieDetailFragment"
+        android:name="com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedMovieDetailFragment"
+        android:label="Search Input">
+        <action
+            android:id="@+id/action_to_LikedMoviesFragment"
+            app:destination="@id/LikedMoviesFragment"/>
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

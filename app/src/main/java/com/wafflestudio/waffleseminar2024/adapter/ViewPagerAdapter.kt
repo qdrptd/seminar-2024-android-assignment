@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.wafflestudio.waffleseminar2024.viewPagerFragments.SearchFragment
-import com.wafflestudio.waffleseminar2024.viewPagerFragments.AppFragment
+import com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedMoviesFragment
 import com.wafflestudio.waffleseminar2024.viewPagerFragments.GameFragment
+import com.wafflestudio.waffleseminar2024.viewPagerFragments.LikedFragment
 import com.wafflestudio.waffleseminar2024.viewPagerFragments.UserInformationFragment
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val slackWorkspaceUrl: String) : FragmentStateAdapter(fragmentActivity) {
@@ -18,7 +19,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity, private val slackWork
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> GameFragment()
-            1 -> AppFragment()
+            1 -> LikedFragment()
             2 -> SearchFragment()
             3 -> {
                 val fragment = UserInformationFragment()

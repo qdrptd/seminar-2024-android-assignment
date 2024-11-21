@@ -14,7 +14,6 @@
         android:background="?attr/colorPrimary"
         android:layout_alignParentTop="true"
         app:layout_constraintBottom_toBottomOf="parent">
-
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2

@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wafflestudio.waffleseminar2024.Movie
+import com.wafflestudio.waffleseminar2024.data.database.LikedMovie
 import com.wafflestudio.waffleseminar2024.data.database.MovieRepository
+import com.wafflestudio.waffleseminar2024.data.database.MyEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -16,17 +18,30 @@ import javax.inject.Inject
 class MovieViewModel @Inject constructor(
     private val repository: MovieRepository
 ) : ViewModel() {
-    private val _myEntity = MutableLiveData<com.wafflestudio.waffleseminar2024.data.database.MyEntity>()
-    val myEntity: LiveData<com.wafflestudio.waffleseminar2024.data.database.MyEntity> get() = _myEntity
+    private val _myEntity = MutableLiveData<MyEntity>()
+    val myEntity: LiveData<MyEntity> get() = _myEntity
 
     private val _searchResults = MutableLiveData<List<Movie>>()
     val searchResults: MutableLiveData<List<Movie>> get() = _searchResults
 
+    val allLikedMovies: LiveData<List<LikedMovie>> = repository.allLikedMovies
+
+    private val _likedMovie = MutableLiveData<MyEntity>()
+    private val likedMovie: MutableLiveData<MyEntity> get() = _likedMovie
+
+    fun fetchLikedMovieDetails(id: Int){
+        viewModelScope.launch {
+            val movieDetails = withContext(Dispatchers.IO) {
+                repository.getMovieById(id)
+            }
+            _likedMovie.value = movieDetails
+        }
+    }
+
     fun fetchMovieDetails(id: Int) {
         viewModelScope.launch {
-            // IO 스레드에서 데이터베이스 작업 수행
             val movieDetails = withContext(Dispatchers.IO) {
-                repository.getMovieById(id)  // 데이터베이스에서 영화 정보 가져오기
+                repository.getMovieById(id)
             }
             _myEntity.value = movieDetails
         }
@@ -34,7 +49,6 @@ class MovieViewModel @Inject constructor(
 
     fun titleQuery(titleWord: String) {
         viewModelScope.launch {
-            // IO 스레드에서 데이터베이스 작업 수행
             val movies = withContext(Dispatchers.IO) {
                 repository.getMoviesByTitle(titleWord).map { entity ->
                     Movie(

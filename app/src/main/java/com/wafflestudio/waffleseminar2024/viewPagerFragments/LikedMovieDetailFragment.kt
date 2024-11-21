@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.text.DecimalFormat
 
 @AndroidEntryPoint
-class MovieDetailFragment : Fragment() {
+class LikedMovieDetailFragment : Fragment() {
 
 //    private val viewModel: MovieViewModel by viewModels { MovieViewModelFactory(requireContext()) }
     private val viewModel: MovieViewModel by viewModels()
@@ -62,7 +62,7 @@ class MovieDetailFragment : Fragment() {
         }
         val navController = findNavController()
         binding.backButton.setOnClickListener{
-            val action = MovieDetailFragmentDirections.actionToSearchResultFragment(emptyArray())
+            val action = LikedMovieDetailFragmentDirections.actionToLikedMoviesFragment()
             navController.navigate(action)
         }
 

@@ -65,10 +65,6 @@ class SearchOverviewFragment : Fragment(), OnGenreClickListener {
             }
         }
 
-        backButton.setOnClickListener{
-
-        }
-
         profileButton.setOnClickListener{
             (activity as HomeActivity).viewPager.currentItem = 3
         }

@@ -1,5 +1,6 @@
 package com.wafflestudio.waffleseminar2024.data.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -32,5 +33,5 @@ interface MovieDao {
     fun deleteLikedMovie(movieId: Int)
 
     @Query("SELECT * FROM liked_movies")
-    fun getAllLikedMovies(): List<LikedMovie>
+    fun getAllLikedMovies(): LiveData<List<LikedMovie>>
 }

@@ -1,4 +1,5 @@
 package com.wafflestudio.waffleseminar2024.data.database
+import androidx.lifecycle.LiveData
 import javax.inject.Inject
 
 
@@ -6,6 +7,8 @@ class MovieRepository @Inject constructor(
     private val apiClient: ApiClient,
     private val movieDao: MovieDao
 ) {
+    val allLikedMovies: LiveData<List<LikedMovie>> = movieDao.getAllLikedMovies()
+
     suspend fun getMovieById(id: Int): MyEntity {
         return apiClient.getMyEntityById(id)
     }
@@ -20,10 +23,6 @@ class MovieRepository @Inject constructor(
 
     suspend fun insertLikedMovie(movie: LikedMovie) {
         movieDao.insertLikedMovie(movie)
-    }
-
-    suspend fun getAllLikedMovies(): List<LikedMovie> {
-        return movieDao.getAllLikedMovies()
     }
 
     suspend fun isMovieLiked(id: Int): Boolean {

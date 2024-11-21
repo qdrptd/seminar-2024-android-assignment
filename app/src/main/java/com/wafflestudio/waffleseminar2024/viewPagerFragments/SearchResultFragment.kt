@@ -27,7 +27,6 @@ class SearchResultFragment : Fragment() {
     private val binding get() = _binding!!
 
     lateinit var searchResultRecyclerView: RecyclerView
-    lateinit var genreRecyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
