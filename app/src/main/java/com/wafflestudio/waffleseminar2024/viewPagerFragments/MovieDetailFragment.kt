@@ -15,12 +15,15 @@ import com.wafflestudio.waffleseminar2024.R
 import com.wafflestudio.waffleseminar2024.adapter.GenreChipAdapter
 import com.wafflestudio.waffleseminar2024.databinding.FragmentMovieDetailBinding
 import com.wafflestudio.waffleseminar2024.viewmodel.MovieViewModel
-import com.wafflestudio.waffleseminar2024.viewmodel.MovieViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.DecimalFormat
 
+@AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
 
-    private val viewModel: MovieViewModel by viewModels { MovieViewModelFactory(requireContext()) }
+//    private val viewModel: MovieViewModel by viewModels { MovieViewModelFactory(requireContext()) }
+    private val viewModel: MovieViewModel by viewModels()
+
     private val movieId: Int by lazy {
         arguments?.getInt("movieId") ?: 0
     }

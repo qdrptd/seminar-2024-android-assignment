@@ -23,9 +23,10 @@ import com.wafflestudio.waffleseminar2024.R
 import com.wafflestudio.waffleseminar2024.databinding.FragmentSearchinputBinding
 import com.wafflestudio.waffleseminar2024.adapter.searchTermRecyclerViewAdapter
 import com.wafflestudio.waffleseminar2024.viewmodel.MovieViewModel
-import com.wafflestudio.waffleseminar2024.viewmodel.MovieViewModelFactory
 import com.wafflestudio.waffleseminar2024.viewmodel.SearchInputViewmodel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchInputFragment: Fragment() {
     private lateinit var navController: NavController
 
@@ -35,7 +36,7 @@ class SearchInputFragment: Fragment() {
     private lateinit var searchTermRecyclerView: RecyclerView
 
     private val searchInputViewModel: SearchInputViewmodel by activityViewModels()
-    private val movieViewModel: MovieViewModel by viewModels { MovieViewModelFactory(requireContext()) }
+    private val movieViewModel: MovieViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

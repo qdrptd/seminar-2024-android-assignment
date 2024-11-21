@@ -5,10 +5,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import com.wafflestudio.waffleseminar2024.Genre
 import com.wafflestudio.waffleseminar2024.Movie
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import javax.inject.Singleton
 
 @JsonClass(generateAdapter = true)
 data class ResponseWrapper<T>(
@@ -18,6 +23,7 @@ data class ResponseWrapper<T>(
     val total_results: Int
     )
 
+
 interface ApiClient {
 
     @GET("3/search/movie")
@@ -25,10 +31,12 @@ interface ApiClient {
         @Query("query") query: String
     ): ResponseWrapper<MyEntity>
 
+
     @GET("3/discover/movie")
     suspend fun getMoviesByGenre(
         @Query("with_genres") query: String
     ): ResponseWrapper<MyEntity>
+
 
     @GET("3/movie/{movie_id}")
     suspend fun getMyEntityById(

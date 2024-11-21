@@ -7,8 +7,9 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.wafflestudio.waffleseminar2024.adapter.ViewPagerAdapter
 import com.wafflestudio.waffleseminar2024.databinding.ActivityHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeActivity: AppCompatActivity() {
     private lateinit var homeBinding: ActivityHomeBinding;
     lateinit var viewPager: ViewPager2
