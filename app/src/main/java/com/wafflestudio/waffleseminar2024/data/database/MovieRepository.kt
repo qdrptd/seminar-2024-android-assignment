@@ -1,12 +1,11 @@
 package com.wafflestudio.waffleseminar2024.data.database
-
-import android.util.Log
-import com.wafflestudio.waffleseminar2024.BuildConfig
 import javax.inject.Inject
 
 
-class MovieRepository @Inject constructor(private val apiClient: ApiClient) {
-
+class MovieRepository @Inject constructor(
+    private val apiClient: ApiClient,
+    private val movieDao: MovieDao
+) {
     suspend fun getMovieById(id: Int): MyEntity {
         return apiClient.getMyEntityById(id)
     }
@@ -17,5 +16,21 @@ class MovieRepository @Inject constructor(private val apiClient: ApiClient) {
 
     suspend fun getMoviesByGenre(genreId: Int): List<MyEntity> {
         return apiClient.getMoviesByGenre(genreId.toString()).results
+    }
+
+    suspend fun insertLikedMovie(movie: LikedMovie) {
+        movieDao.insertLikedMovie(movie)
+    }
+
+    suspend fun getAllLikedMovies(): List<LikedMovie> {
+        return movieDao.getAllLikedMovies()
+    }
+
+    suspend fun isMovieLiked(id: Int): Boolean {
+        return movieDao.getLikedMovieById(id) != null
+    }
+
+    suspend fun deleteLikedMovie(id: Int) {
+        movieDao.deleteLikedMovie(id)
     }
 }
