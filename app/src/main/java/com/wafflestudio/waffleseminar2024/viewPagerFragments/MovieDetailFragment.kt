@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
@@ -58,13 +59,24 @@ class MovieDetailFragment : Fragment() {
                 binding.statusText.text = it.status
                 binding.budgetText.text = DecimalFormat("$#,###").format(it.budget)
                 binding.revenueText.text = DecimalFormat("$#,###").format(it.revenue)
+                binding.likeButton.setOnClickListener{
+                    viewModel.handleLikeButtonClick(movie.id, movie.poster_path)
+                }
             }
         }
+
+        viewModel.isLiked.observe(viewLifecycleOwner){ isLiked ->
+            binding.likeButton.setImageResource(if(isLiked) R.drawable.star_filled  else R.drawable.star_gray)
+        }
+
+
         val navController = findNavController()
         binding.backButton.setOnClickListener{
             val action = MovieDetailFragmentDirections.actionToSearchResultFragment(emptyArray())
             navController.navigate(action)
         }
+
+
 
     }
 

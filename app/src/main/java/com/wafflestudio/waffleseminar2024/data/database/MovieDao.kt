@@ -24,13 +24,13 @@ interface MovieDao {
     fun getMoviesByGenre(genreId: Int): List<MyEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertLikedMovie(likedMovie: LikedMovie)
+    suspend fun insertLikedMovie(likedMovie: LikedMovie)
 
     @Query("SELECT * FROM liked_movies WHERE id = :movieId")
-    fun getLikedMovieById(movieId: Int): LikedMovie?
+    suspend fun getLikedMovieById(movieId: Int): LikedMovie?
 
     @Query("DELETE FROM liked_movies WHERE id = :movieId")
-    fun deleteLikedMovie(movieId: Int)
+    suspend fun deleteLikedMovie(movieId: Int)
 
     @Query("SELECT * FROM liked_movies")
     fun getAllLikedMovies(): LiveData<List<LikedMovie>>

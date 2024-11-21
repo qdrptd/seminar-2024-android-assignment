@@ -58,8 +58,16 @@ class LikedMovieDetailFragment : Fragment() {
                 binding.statusText.text = it.status
                 binding.budgetText.text = DecimalFormat("$#,###").format(it.budget)
                 binding.revenueText.text = DecimalFormat("$#,###").format(it.revenue)
+                binding.likeButton.setOnClickListener{
+                    viewModel.handleLikeButtonClick(movie.id, movie.poster_path)
+                }
             }
         }
+
+        viewModel.isLiked.observe(viewLifecycleOwner){ isLiked ->
+            binding.likeButton.setImageResource(if(isLiked) R.drawable.star_filled  else R.drawable.star_gray)
+        }
+
         val navController = findNavController()
         binding.backButton.setOnClickListener{
             val action = LikedMovieDetailFragmentDirections.actionToLikedMoviesFragment()

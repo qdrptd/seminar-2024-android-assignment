@@ -1,6 +1,8 @@
 package com.wafflestudio.waffleseminar2024.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,13 +23,41 @@ class MovieViewModel @Inject constructor(
     private val _myEntity = MutableLiveData<MyEntity>()
     val myEntity: LiveData<MyEntity> get() = _myEntity
 
+    val isLiked = MediatorLiveData<Boolean>().apply {
+        addSource(myEntity) { entity ->
+            value = entity?.id?.let { id ->
+                repository.allLikedMovies.value?.any { it.id == id } == true
+            } ?: false
+        }
+        addSource(repository.allLikedMovies) { likedMovies ->
+            value = myEntity.value?.id?.let { id ->
+                likedMovies.any { it.id == id }
+            } ?: false
+        }
+    }
     private val _searchResults = MutableLiveData<List<Movie>>()
     val searchResults: MutableLiveData<List<Movie>> get() = _searchResults
 
     val allLikedMovies: LiveData<List<LikedMovie>> = repository.allLikedMovies
 
+
     private val _likedMovie = MutableLiveData<MyEntity>()
     private val likedMovie: MutableLiveData<MyEntity> get() = _likedMovie
+
+    fun handleLikeButtonClick(id: Int?, posterPath: String?){
+        if(id == null || posterPath == null) return
+
+        viewModelScope.launch{
+            val isLiked = repository.isMovieLiked(id)
+            Log.d("isLiked:", isLiked.toString())
+            if(isLiked){
+                repository.deleteLikedMovie(id)
+            }
+            else{
+                repository.insertLikedMovie(LikedMovie(id, posterPath))
+            }
+        }
+    }
 
     fun fetchLikedMovieDetails(id: Int){
         viewModelScope.launch {

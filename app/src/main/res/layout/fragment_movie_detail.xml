@@ -22,10 +22,11 @@
         android:elevation="10dp"/>
 
     <ImageView
+        android:id="@+id/likeButton"
         android:layout_margin="10dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/star_filled"
+        android:src="@drawable/star_gray"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:elevation="10dp"/>
